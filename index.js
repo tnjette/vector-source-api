@@ -29,7 +29,7 @@ const getLocations = (request, response) => {
         if(error){
             throw error
         }
-        response.status(200).json(results.row)
+        response.status(200).json(results.rows)
     })
 }
 
