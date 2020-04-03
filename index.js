@@ -11,8 +11,8 @@ app.use(cors)
 
 const getIPs = (request, response) => {
     pool.query("SELECT * FROM ips", (error, results) => {
-        if(error) => {
-            console.log(error)
+        if(error){
+            throw error
         }
         response.status(200).json(results.rows)
     })
@@ -20,8 +20,8 @@ const getIPs = (request, response) => {
 
 const getLocations = (request, response) => {
     pool.query("SELECT * FROM locations", (error, results) => {
-        if(error) => {
-            console.log(error)
+        if(error){
+            throw error
         }
         response.status(200).json(results.row)
     })
@@ -29,8 +29,8 @@ const getLocations = (request, response) => {
 
 const getEntries = (request, response) => {
     pool.query("SELECT * FROM entries", (error, results) => {
-        if(error) => {
-            console.log(error)
+        if(error){
+            throw error
         }
         response.status(200).json(results.rows)
     })
