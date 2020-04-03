@@ -1,13 +1,19 @@
-const express = require('express')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const { pool } = require('./config')
+var express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+//const { pool } = require('./config')
+
+const { Pool } = require('pg');
+const pool = new Pool({
+    connectionString : process.env.DATABASE_URL,
+    ssl: false
+});
 
 const app = express();
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended : true}))
-app.use(cors)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended : true}));
+app.use(cors());
 
 const getIPs = (request, response) => {
     pool.query("SELECT * FROM ips", (error, results) => {
@@ -73,6 +79,6 @@ app.route('/ips').get(getIPs).post(addIP)
 app.route('/locations').get(getLocations).post(addLocation)
 app.route('/entry').get(getEntries).post(addEntry)
 
-app.listen(process.env.PORT | 3002, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log('Listening')
 })
