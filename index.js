@@ -20,7 +20,7 @@ const getIPs = (request, response) => {
         if(error){
             throw error
         }
-        response.status(200).json(results.rows)
+        response.status(200).json(results.rows);
     })
 }
 
@@ -77,7 +77,7 @@ const addEntry = (request, response) => {
 
 app.route('/ips').get(getIPs).post(addIP)
 app.route('/locations').get(getLocations).post(addLocation)
-app.route('/entry').get(getEntries).post(addEntry)
+app.route('/entries').get(getEntries).post(addEntry)
 
 app.listen(process.env.PORT || 5000, () => {
     console.log('Listening')
