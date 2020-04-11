@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : true}));
 app.use(cors());
 
+/*get end points*/
 const getIPs = (request, response) => {
     pool.query("SELECT * FROM ips", (error, results) => {
         if(error){
@@ -42,7 +43,11 @@ const getEntries = (request, response) => {
     })
 }
 
+
+/**post endpoints*/
 const addIP = (request, response) => {
+    const { ip_address, timestamp, entry_id, public_computer } = request.body
+
     pool.query("INSERT INTO ips (ip_address,timestamp,entry_id,public_computer) VALUES ($1, $2, $3, $4)", [ip_address,timestamp,entry_id,public_computer],
             error => {
                 if(error){
@@ -54,6 +59,7 @@ const addIP = (request, response) => {
 }
 
 const addLocation = (request, response) => {
+    const { entry_id, lat_long } = request.body
     pool.query("INSERT INTO locations (entry_id, lat_long) VALUES ($1, $2)", [entry_id, lat_long],
             error => {
                 if(error){
@@ -65,7 +71,9 @@ const addLocation = (request, response) => {
 }
 
 const addEntry = (request, response) => {
-    pool.query("INSERT INTO entries (entry_id,entry_type,household_size,age,fever,temp,cough,nasal_congestion,respiratory_problems,digestive_problems,muscular_soreness,fatigue,sore_throat,other_symptoms,underlying_health_conditions,isolation_level,recent_travel_destination,recent_travel_date) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)", [entry_id, lat_long],
+    const { entry_id, entry_type, household_size, age, fever, temp, cough, nasal_congestion, respiratory_problems, digestive_problems, muscular_soreness, fatigue, sore_throat, other_symptoms, underlying_health_conditions, isolation_level, recent_travel_destination, recent_travel_date } = request.body
+    pool.query("INSERT INTO entries (entry_id,entry_type,household_size,age,fever,temp,cough,nasal_congestion,respiratory_problems,digestive_problems,muscular_soreness,fatigue,sore_throat,other_symptoms,underlying_health_conditions,isolation_level,recent_travel_destination,recent_travel_date) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18)",
+        [entry_id, entry_type, household_size, age, fever, temp, cough, nasal_congestion, respiratory_problems, digestive_problems, muscular_soreness, fatigue, sore_throat, other_symptoms, underlying_health_conditions, isolation_level, recent_travel_destination, recent_travel_date],
             error => {
                 if(error){
                     throw error
