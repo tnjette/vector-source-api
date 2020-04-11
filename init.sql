@@ -1,5 +1,4 @@
 CREATE TABLE ips (
-    ID SERIAL PRIMARY KEY,
     ip_address VARCHAR(50),
     timestamp VARCHAR(50),
     entry_id VARCHAR(100),
@@ -18,13 +17,13 @@ CREATE TABLE entries (
     age VARCHAR(3),
     fever VARCHAR(1),
     temp VARCHAR(3),
-    cough BOOLEAN,
-    nasal_congestion BOOLEAN,
-    respiratory_problems BOOLEAN,
-    digestive_problems BOOLEAN,
-    muscular_soreness BOOLEAN,
-    fatigue BOOLEAN,
-    sore_throat BOOLEAN,
+    cough VARCHAR(1),
+    nasal_congestion VARCHAR(1),
+    respiratory_problems VARCHAR(1),
+    digestive_problems VARCHAR(1),
+    muscular_soreness VARCHAR(1),
+    fatigue VARCHAR(1),
+    sore_throat VARCHAR(1),
     other_symptoms VARCHAR(300),
     underlying_health_conditions VARCHAR(300),
     isolation_level VARCHAR(1),
@@ -36,4 +35,4 @@ INSERT INTO ips (ip_address,timestamp,entry_id,public_computer) VALUES ('65.130.
 
 INSERT INTO locations (entry_id, lat_long) VALUES ('65.130.72.214_1585325334', '40.7549, -111.8649');
 
-INSERT INTO entries (entry_id, entry_type, household_size, age, fever, temp, cough, nasal_congestion, respiratory_problems, digestive_problems, muscular_soreness, fatigue, sore_throat, other_symptoms, underlying_health_conditions, isolation_level, recent_travel_destination, recent_travel_date) VALUES ('65.130.72.214_1585325334', '1', '1', '33', '1', '102', TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, '', '', '1', '32.77, 96.79', '03-12-2020 00:00:00');
+INSERT INTO entries (entry_id, entry_type, household_size, age, fever, temp, cough, nasal_congestion, respiratory_problems, digestive_problems, muscular_soreness, fatigue, sore_throat, other_symptoms, underlying_health_conditions, isolation_level, recent_travel_destination, recent_travel_date) VALUES ('65.130.72.214_1585325334', '1', '1', '33', '1', '102', '1', '1', '2', '2', '1', '1', '1', '', '', '1', '32.77, 96.79', '03-12-2020 00:00:00');
