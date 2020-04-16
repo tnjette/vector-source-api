@@ -77,7 +77,7 @@ const addEntry = (request, response) => {
             error => {
                 if(error){
                     throw error
-                }
+                }   
                 response.status(201).json({status : 'success', message : 'Location added'})
             }
     )

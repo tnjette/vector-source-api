@@ -31,8 +31,8 @@ CREATE TABLE entries (
     recent_travel_date VARCHAR(50)
 );
 
-INSERT INTO ips (ip_address,timestamp,entry_id,public_computer) VALUES ('65.130.72.214', '1585325334', '65.130.72.214_1585325334', FALSE);
+INSERT INTO ips (ip_address,timestamp,entry_id,public_computer) VALUES ('65.130.72.214', '1586821235664', '65.130.72.214_1585325334', FALSE);
 
-INSERT INTO locations (entry_id, lat_long) VALUES ('65.130.72.214_1585325334', '40.7549, -111.8649');
+INSERT INTO locations (entry_id, lat_long) VALUES ('65.130.72.214_1586821235664', '40.7550, -111.8642');
 
-INSERT INTO entries (entry_id, entry_type, household_size, age, fever, temp, cough, nasal_congestion, respiratory_problems, digestive_problems, muscular_soreness, fatigue, sore_throat, other_symptoms, underlying_health_conditions, isolation_level, recent_travel_destination, recent_travel_date) VALUES ('65.130.72.214_1585325334', '1', '1', '33', '1', '102', '1', '1', '2', '2', '1', '1', '1', '', '', '1', '32.77, 96.79', '03-12-2020 00:00:00');
+INSERT INTO entries (entry_id, entry_type, household_size, age, fever, temp, cough, nasal_congestion, respiratory_problems, digestive_problems, muscular_soreness, fatigue, sore_throat, other_symptoms, underlying_health_conditions, isolation_level, recent_travel_destination, recent_travel_date) VALUES ('65.130.72.214_1586821235664', '1', '1', '33', '1', '102', '1', '1', '2', '2', '1', '1', '1', '', '', '1', '32.77, 96.79', '03-12-2020 00:00:00');
